@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  get 'posts/show'
 
-  get 'posts/new'
 
-  get 'posts/edit'
 
-  resources :discussions
+  resources :discussions do
+    resources :posts
+  end
 
   get 'welcome/index'
   get 'welcome/about'

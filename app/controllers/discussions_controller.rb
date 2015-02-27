@@ -5,6 +5,8 @@ class DiscussionsController < ApplicationController
 
   def show
     @discussion = Discussion.find(params[:id])
+    @posts = @discussion.posts
+    @new_post = Post.new
   end
 
   def new
