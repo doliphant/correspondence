@@ -11,15 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227163701) do
+ActiveRecord::Schema.define(version: 20150227173027) do
 
   create_table "discussions", force: :cascade do |t|
     t.string   "title"
-    t.boolean  "public",      default: true
+    t.boolean  "public",         default: true
     t.text     "description"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "creator_id"
+    t.integer  "participant_id"
   end
+
+  add_index "discussions", ["creator_id"], name: "index_discussions_on_creator_id"
+  add_index "discussions", ["participant_id"], name: "index_discussions_on_participant_id"
 
   create_table "posts", force: :cascade do |t|
     t.text     "body"

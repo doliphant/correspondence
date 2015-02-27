@@ -14,7 +14,21 @@ class DiscussionsController < ApplicationController
   end
 
   def create
-    @discussion = Discussion.new(params.require(:discussion).permit(:title, :description, :public))
+    @discussion = Discussion.new(discussion_params)
+    @discussion.creator_id = current_user.id
+
+    # form similiar to adding collaborators in blocipedia
+    # @participant = User.where(email: params[:email]).take
+
+    # @discussion.participant_id = @particpant
+
+    # build in check for participant user existing
+    # if user exists
+    #   perform the save
+    # else
+    #   flash error message
+    # end
+
 
     if @discussion.save
       flash[:notice] = "Correspondence has been created."
@@ -32,7 +46,7 @@ class DiscussionsController < ApplicationController
   def update
     @discussion = Discussion.find(params[:id])
 
-    if @discussion.update_attributes(params.require(:discussion).permit(:title, :description, :public))
+    if @discussion.update_attributes(discussion_params)
       flash[:notice] = "Correspondence has been updated."
       redirect_to @discussion
     else
@@ -54,5 +68,8 @@ class DiscussionsController < ApplicationController
     end
   end
 
+  def discussion_params
+    params.require(:discussion).permit(:title, :description, :public)
+  end
 
 end
