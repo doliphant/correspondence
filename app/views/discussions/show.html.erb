@@ -1,9 +1,16 @@
-<h1><%= @discussion.title %></h1>
+<div class="col-md-12">
+  <div class="header">
+    <h1><%= @discussion.title %></h1>
 
-<p><%= @discussion.description %></p>
-<p> Participants: <%= @discussion.creator.name %> and <%= @discussion.participant.name %> </p>
+    <div class="lead">
+      <p><%= @discussion.description %></p>
+      <i> Participants: <%= @discussion.creator.name %> and <%= @discussion.participant.name %> </i>
+    </div>
+  </div>
+
+  <%= render partial: 'posts/post', collection: @posts %>
+
+  <%= render partial: 'posts/form', locals: { discussion: @discussion, post: @new_post } %>
 
 
-<%= render partial: 'posts/post', collection: @posts %>
-
-<%= render partial: 'posts/form', locals: { discussion: @discussion, post: @new_post } %>
+</div>

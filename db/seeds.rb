@@ -37,7 +37,7 @@ discussions = Discussion.all
   post = Post.create!(
     discussion: discussion,
     user: discussion_users.sample,
-    body: Faker::Lorem.paragraph
+    body: Faker::Lorem.paragraphs(3)
   )
 
   post.update_attributes!(created_at: rand(10.minutes .. 6.months).ago)

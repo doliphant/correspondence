@@ -1,11 +1,16 @@
-<div>
-  <p><%= post.body %>
-    <small>
-      submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %>
-    </small>
-  </p>
-</div>
+<div class="row">
+  <% if post.user == @discussion.participant %>
+    <div class="posts pull-right">
+  <% else %>
+    <div class="posts">
+  <% end %>
 
-<div>
-    <%= link_to "Edit", edit_discussion_post_path(@discussion, post), class: 'btn btn-success' %>
+    <body><%= post.body %>
+      <small>
+        <i>submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %></i>
+        <%= link_to "Edit", edit_discussion_post_path(@discussion, post) %>
+      </small>
+    </body>
+
+  </div>
 </div>
