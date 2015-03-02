@@ -32,6 +32,7 @@ class PostsController < ApplicationController
     # @post = current_user.posts.build(post_params)
     @post = Post.new(post_params)
     @post.discussion = @discussion
+    @post.user = current_user
 
     if @post.save
       flash[:notice] = "Your contribution has been saved."

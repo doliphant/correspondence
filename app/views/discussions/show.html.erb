@@ -1,7 +1,7 @@
 <h1><%= @discussion.title %></h1>
 
 <p><%= @discussion.description %></p>
-<p> Participants: <%= @discussion.creator.email %> and <%= @discussion.participant.email %> </p>
+<p> Participants: <%= @discussion.creator.name %> and <%= @discussion.participant.email %> </p>
 
 
 <%= render partial: 'posts/post', collection: @posts %>
