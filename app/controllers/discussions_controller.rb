@@ -14,13 +14,10 @@ class DiscussionsController < ApplicationController
   end
 
   def create
+
     @discussion = Discussion.new(discussion_params)
-    @discussion.creator_id = current_user.id
-
-    # form similiar to adding collaborators in blocipedia
-    # @participant = User.where(email: params[:email]).take
-
-    # @discussion.participant_id = @particpant
+    @discussion.creator = current_user
+    @discussion.participant = User.find_by(email: params[:email])
 
     # build in check for participant user existing
     # if user exists
@@ -28,7 +25,6 @@ class DiscussionsController < ApplicationController
     # else
     #   flash error message
     # end
-
 
     if @discussion.save
       flash[:notice] = "Correspondence has been created."

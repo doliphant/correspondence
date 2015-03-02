@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   has_many :created_discussions, :foreign_key => "creator_id", :class_name => "Discussion"
   has_many :participated_discussions, :foreign_key => "participant_id", :class_name => "Discussion"
 
-  has_many :posts, through: :discussions
-
+  has_many :posts
 
 end
