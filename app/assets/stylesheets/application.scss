@@ -1,37 +1,7 @@
 @import "bootstrap";
+@import "posts";
+@import "discussions";
 
-.posts {
-  position: relative;
-  left: 20px;
-  border: solid;
-  border-radius: 5px;
-  border-color: dimgrey;
-  padding: 5px;
-  margin: 10px 45px 10px 0px;
-  width: 850px;
-}
-
-// .creator_posts {
-//   position: relative;
-//   right: 20px;
-//   border: solid;
-//   border-radius: 5px;
-//   border-color: green;
-//   padding: 5px;
-//   margin: 10px 10px 10px 10px;
-//   width: 850px;
-// }
-
-.header {
-  border: solid;
-  border-color: lightgrey;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 10px 10px 10px 10px;
-  background: lightgrey;
-}
-
-.title {
-  padding: 5px;
-  margin: 10px;
+.nav {
+  margin: 5px;
 }

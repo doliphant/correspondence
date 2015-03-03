@@ -15,7 +15,7 @@
     <li><%= link_to "About", welcome_about_path %></li>
     <li><%= link_to "Discussions", discussions_path %></li>
 
-    <div class="pull-right user-info">
+    <div class="nav pull-right user-info">
       <% if current_user %>
         Greetings <%= link_to current_user.email, edit_user_registration_path %>! <%= link_to "Sign_Out", destroy_user_session_path, method: :delete %>
       <% else %>

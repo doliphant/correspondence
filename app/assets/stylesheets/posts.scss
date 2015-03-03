@@ -1,3 +1,23 @@
+
+.posts {
+  border: solid;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.creator_posts {
+  position: relative;
+  margin: 10px 50px 10px 1px;
+  border-color: lightblue;
+}
+
+.participant_posts {
+  position: relative;
+  margin: 10px 1px 10px 50px;
+  border-color: lightgreen;
+}
+
+
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/

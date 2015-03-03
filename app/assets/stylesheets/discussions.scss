@@ -1,0 +1,25 @@
+.header {
+  font: 100% Helvetica, sans-serif;
+  border: solid;
+  border-color: lightgrey;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px 10px 10px 10px;
+  background: lightgrey;
+}
+
+.contribution_form {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: lightgrey;
+}
+
+.discussion-area {
+  padding: 5px;
+}
+
+.contributor {
+  padding-bottom: 190px;
+}
