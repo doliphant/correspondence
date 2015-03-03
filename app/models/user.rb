@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
   has_many :participated_discussions, :foreign_key => "participant_id", :class_name => "Discussion"
 
   has_many :posts
+  has_many :comments
 
 end

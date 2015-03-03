@@ -7,6 +7,8 @@ class DiscussionsController < ApplicationController
     @discussion = Discussion.find(params[:id])
     @posts = @discussion.posts
     @new_post = Post.new
+    @comments = @discussion.comments
+    @new_comment = Comment.new
   end
 
   def new

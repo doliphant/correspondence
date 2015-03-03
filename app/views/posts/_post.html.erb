@@ -5,12 +5,14 @@
     <div class="posts creator_posts">
   <% end %>
 
-    <body><%= post.body %>
+      <body><%= post.body %></body>
+
+      </br>
+
       <small>
         <i>submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %></i>
         <%= link_to "Edit", edit_discussion_post_path(@discussion, post) %>
       </small>
-    </body>
 
-  </div>
+    </div>
 </div>
