@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   def edit
     @discussion = Discussion.find(params[:discussion_id])
     @post = Post.find(params[:id])
+    authorize @post
   end
 
   def update

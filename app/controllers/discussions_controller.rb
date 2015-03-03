@@ -13,6 +13,7 @@ class DiscussionsController < ApplicationController
 
   def new
     @discussion = Discussion.new
+    authorize @discussion
   end
 
   def create
