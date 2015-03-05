@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @discussion = Discussion.find(params[:discussion_id])
-    @comment = @discussion.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
 
     if @comment.destroy
       flash[:notice] = "Comment removed."

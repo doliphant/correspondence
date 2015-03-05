@@ -8,12 +8,20 @@
   background: lightgrey;
 }
 
-.contribution_form {
+.contribution-form {
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.contribution-btn {
+}
+
+.contribution-container {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: lightgrey;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
 }
 
 .discussion-area {
@@ -21,5 +29,5 @@
 }
 
 .contributor {
-  padding-bottom: 190px;
+  padding-bottom: 244px;
 }

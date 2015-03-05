@@ -10,7 +10,7 @@ group :development do
   gem 'sqlite3'
 end
 
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.3'
 
 gem 'devise'
 

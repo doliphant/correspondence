@@ -18,30 +18,32 @@
 
   <%= render partial: 'posts/post', collection: @posts %>
 
-  <% if current_user == (@discussion.creator || @discussion.participant) %>
-   <%= render partial: 'posts/form', locals: { discussion: @discussion, post: @new_post } %>
-  <% end %>
-
   <% if current_user != (@discussion.creator || @discussion.participant) %>
     <%= render partial: 'comments/form', locals: { discussion: @discussion, comment: @new_comment } %>
   <% end %>
 
   <%= render partial: 'comments/comment', collection: @comments %>
 
+<!-- #collapsing button for adding a contribution when user or participant is present -->
 
-  <!-- <button class="btn btn-primary" type="button"
-  data-toggle="collapse"
-  data-target="#contributionCollapse"
-  aria-expanded="false"
-  aria-controls="contributionCollapse">
-    Add Contribution
-  </button>
+  <% if current_user == (@discussion.creator || @discussion.participant) %>
+    <div class="container-fluid contribution-container">
+      <button class="btn btn-primary contribution-btn" type="button"
+      data-toggle="collapse"
+      data-target="#contributionCollapse"
+      aria-expanded="false"
+      aria-controls="contributionCollapse">
+        Add Contribution
+      </button>
 
-  <div class="collapse" id="contributionCollapse">
-    <div class="well">
-      Some Words
+      <div class="collapse" id="contributionCollapse">
+        <div class="panel">
+          <div class="panel-body">
+            <%= render partial: 'posts/form', locals: { discussion: @discussion, post: @new_post } %>
+          </div>
+        </div>
+      </div>
     </div>
-  </div> -->
-
+  <% end %>
 
 </div>

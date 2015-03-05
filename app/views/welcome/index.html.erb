@@ -1,17 +1,26 @@
 </br>
 
-<div class="jumbotron">
+<div class="jumbotron georg-serif">
   <h1>Correspondence</h1>
-  <p>Pretty definition of formal corresponce</p>
-  <p> sign in/up links </p>
+  <p><i>Communication by exchanging letters with someone.</i></p>
+  <p class="helv">Writing can carry more meaning, if we just let it.</p>
+
+  <% if current_user.present? %>
+    <p>Welcome back <%= current_user.name %></p>
+  <% else %>
+    <p>
+      <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary'%> or
+      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary'%>
+    </p>
+  <% end %>
 </div>
 
-<div class="row">
+<div class="row btm-info georg-serif">
   <div class="col-md-4">
-    <h2>Communicate with Purpose</h2>
-      <ul>Learn to be a better writer</ul>
-      <ul>Have meaningful conversations</ul>
-      <ul>Read more about <%= link_to "Corresondence", welcome_about_path, class: 'link' %></ul>
+    <h2>Writing can carry more meaning, we just need to let it.</h2>
+      <ul>Discussions cannot be edited! What you write matters</ul>
+      <ul>Permanence gives conversations meaning.</ul>
+      <ul>Read more <%= link_to "About Correspondence", welcome_about_path, class: 'link' %></ul>
   </div>
 
   <div class="col-md-4">
@@ -25,5 +34,5 @@
     <h2>Features</h2>
       <ul>Create private correspondences with friends and family</ul>
       <ul>Discuss particular topics and become a better writer</ul>
-      <ul>Share your correspondce for others to discuss</ul>
+      <ul>Share your correspondence for others to discuss</ul>
   </div>
