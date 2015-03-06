@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @discussion = Discussion.find(params[:discussion_id])
+    authorize @post
   end
 
   def new
@@ -30,7 +31,6 @@ class PostsController < ApplicationController
 
   def create
     @discussion = Discussion.find(params[:discussion_id])
-    # @post = current_user.posts.build(post_params)
     @post = Post.new(post_params)
     @post.discussion = @discussion
     @post.user = current_user
@@ -48,6 +48,8 @@ class PostsController < ApplicationController
   def destroy
     @discussion = Discussion.find(params[:discussion_id])
     @post = Post.find(params[:id])
+    # Destroy action deliberately restriced to destruction of the discussion
+    authorize @discussion
 
     if @post.destroy
       flash[:notice] = "Post has been deleted."

@@ -9,9 +9,24 @@
   user.save!
 end
 
+# users for testing purposes
+tester = User.new(
+  name: 'Tester',
+  email: 'tester@example.com',
+  password: 'pewfortest'
+)
+tester.save!
+
+participant = User.new(
+  name: 'Participant',
+  email: 'participant@example.com',
+  password: 'pewfortest'
+)
+participant.save!
+
 users = User.all
 
-10.times do
+15.times do
   discussion = Discussion.create!(
     creator: users.sample,
     participant: users.sample,
@@ -22,12 +37,22 @@ users = User.all
   while discussion.creator == discussion.participant do
     discussion.update_attributes!(participant: users.sample)
   end
+end
 
+#Private correspondences
+5.times do
+  discussion = Discussion.create!(
+    creator: tester,
+    participant: participant,
+    title: Faker::Lorem.sentence,
+    description: Faker::Lorem.paragraph,
+    public: false
+  )
 end
 
 discussions = Discussion.all
 
-50.times do
+100.times do
   # post user can only be the creator or participant
   discussion = discussions.sample
   discussion_users = []
@@ -44,21 +69,6 @@ discussions = Discussion.all
 
 end
 
-
-# users for testing purposes
-tester = User.new(
-  name: 'Tester',
-  email: 'tester@example.com',
-  password: 'pewfortest'
-)
-tester.save!
-
-participant = User.new(
-  name: 'Participant',
-  email: 'participant@example.com',
-  password: 'pewfortest'
-)
-participant.save!
 
 
 puts "Seed Finished"
