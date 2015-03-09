@@ -1,5 +1,5 @@
 
-<% if current_user == (@discussion.creator || @discussion.participant) %>
+<% if current_user.in_discussion?(@discussion) %>
   <div class="discussion-area contributor">
 <% else %>
   <div class="discussion-area">
@@ -11,14 +11,20 @@
     <h1><%= @discussion.title %></h1>
 
     <div class="lead">
-      <p><%= @discussion.description %></p>
-      <i> Participants: <%= @discussion.creator.name %> and <%= @discussion.participant.name %> </i>
+      <p><%= @discussion.description %>
+        <% if @discussion.updated_at == @discussion.created_at %>
+          <small><i> Created on <%= @discussion.updated_at.strftime("%m/%d/%Y") %>. </i></small>
+        <% else %>
+          <small><i> Updated on <%= @discussion.updated_at.strftime("%m/%d/%Y") %>. </i></small>
+        <% end %>
+      </p>
+      <i> Participants: <%= @discussion.creator.name %> and <%= @discussion.participant.name %> </i></br>
     </div>
   </div>
 
   <%= render partial: 'posts/post', collection: @posts %>
 
-  <% if current_user.present? && (current_user != (@discussion.creator || @discussion.participant)) %>
+  <% if current_user.present? && !current_user.in_discussion?(@discussion) %>
     <%= render partial: 'comments/form', locals: { discussion: @discussion, comment: @new_comment } %>
   <% end %>
 
@@ -26,7 +32,7 @@
 
 <!-- #collapsing button for adding a contribution when user or participant is present -->
 
-  <% if current_user == (@discussion.creator || @discussion.participant) %>
+  <% if current_user.in_discussion?(@discussion) %>
     <div class="container-fluid contribution-container">
       <button class="btn btn-primary contribution-btn" type="button"
       data-toggle="collapse"

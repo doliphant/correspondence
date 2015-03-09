@@ -27,18 +27,13 @@ class DiscussionsController < ApplicationController
 
     if @discussion.participant.nil?
       flash[:error] = "Participant cannot be found."
-      # redirect_to form but keep signed in data.
-      redirect_to new_discussion_path
+      render :new
+    elsif @discussion.save
+      flash[:notice] = "Correspondence has been created."
+      redirect_to @discussion
     else
-
-      if @discussion.save
-        flash[:notice] = "Correspondence has been created."
-        redirect_to @discussion
-      else
-        flash[:error] = "Sorry about that, we had an error. Please try again."
-        render new_discussion_path
-      end
-
+      flash[:error] = "Sorry about that, we had an error. Please try again."
+      render :new
     end
   end
 

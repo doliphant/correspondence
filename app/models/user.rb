@@ -11,4 +11,9 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
 
+  def in_discussion?(discussion)
+    self == discussion.creator || self == discussion.participant
+  end
+
+
 end
