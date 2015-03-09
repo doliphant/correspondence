@@ -10,6 +10,13 @@ class DiscussionsController < ApplicationController
     @new_post = Post.new
     @comments = @discussion.comments
     @new_comment = Comment.new
+    @user = current_user
+
+    # need a user for calls to user class methods
+    if @user == nil
+      @user = User.new
+    end
+
     authorize @discussion
   end
 
@@ -69,7 +76,7 @@ class DiscussionsController < ApplicationController
   end
 
   def discussion_params
-    params.require(:discussion).permit(:title, :description, :public)
+    params.require(:discussion).permit(:title, :description, :private)
   end
 
 end

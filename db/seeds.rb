@@ -46,7 +46,7 @@ end
     participant: participant,
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
-    public: false
+    private: true
   )
 end
 

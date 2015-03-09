@@ -1,18 +1,20 @@
 </br>
 
 <div class="jumbotron georg-serif">
-  <h1>Correspondence</h1>
-  <p><i>Communication by exchanging letters with someone.</i></p>
-  <p class="helv">Writing can carry more meaning, if we just let it.</p>
+  <div class="jumbo-format">
+    <h1>Correspondence</h1>
+    <p><i>Communication by exchanging letters with someone.</i></p>
+    <p class="helv">Writing can carry more meaning, if we just let it.</p>
 
-  <% if current_user.present? %>
-    <p>Welcome back <%= current_user.name %></p>
-  <% else %>
-    <p>
-      <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary'%> or
-      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary'%>
-    </p>
-  <% end %>
+    <% if current_user.present? %>
+      <p>Welcome back <%= current_user.name %></p>
+    <% else %>
+      <p>
+        <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary'%> or
+        <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary'%>
+      </p>
+    <% end %>
+  </div>
 </div>
 
 <div class="row btm-info georg-serif">

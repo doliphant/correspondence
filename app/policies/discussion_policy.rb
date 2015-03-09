@@ -5,7 +5,7 @@ class DiscussionPolicy < ApplicationPolicy
   end
 
   def show?
-    (scope.where(:id => record.id).exists? && record.public) ||
+    (scope.where(:id => record.id).exists? && !record.private) ||
     record.creator == user || record.participant == user
   end
 
