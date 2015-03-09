@@ -1,6 +1,6 @@
 class PostPolicy < ApplicationPolicy
 
-  #inheriting from application policy
+  #inheriting from application policy:
   #show?
   #
 
@@ -14,7 +14,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present? && (record.discussion.creator == user || record.discussion.participant == user)
+    user.present? && user.in_discussion?(record)
   end
 
   def new?

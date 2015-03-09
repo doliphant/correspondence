@@ -1,9 +1,9 @@
 
-<% if @user.in_discussion?(@discussion) %>
+<!-- if @user.in_discussion?(@discussion)  -->
   <div class="discussion-area contributor">
-<% else %>
+<!-- else
   <div class="discussion-area">
-<% end %>
+end -->
 
 
 
@@ -24,11 +24,29 @@
 
   <%= render partial: 'posts/post', collection: @posts %>
 
+  <%= render partial: 'comments/comment', collection: @comments %>
+
+<!-- collapsable comment panel for signed-in non-participants -->
   <% if current_user.present? && !@user.in_discussion?(@discussion) %>
-    <%= render partial: 'comments/form', locals: { discussion: @discussion, comment: @new_comment } %>
+    <div class="container-fluid contribution-container">
+      <button class="btn btn-primary contribution-btn" type="button"
+      data-toggle="collapse"
+      data-target="#commentCollapse"
+      aria-expanded="false"
+      aria-controls="commentCollapse">
+        Add Comment
+      </button>
+
+      <div class="collapse" id="commentCollapse">
+        <div class="panel bottom-out">
+          <div class="panel-body">
+            <%= render partial: 'comments/form', locals: { discussion: @discussion, comment: @new_comment } %>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 
-  <%= render partial: 'comments/comment', collection: @comments %>
 
 <!-- #collapsing button for adding a contribution when user or participant is present -->
 
@@ -43,7 +61,7 @@
       </button>
 
       <div class="collapse" id="contributionCollapse">
-        <div class="panel">
+        <div class="panel bottom-out">
           <div class="panel-body">
             <%= render partial: 'posts/form', locals: { discussion: @discussion, post: @new_post } %>
           </div>

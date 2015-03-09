@@ -8,20 +8,21 @@
   background: lightgrey;
 }
 
-.contribution-form {
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-}
 
 .contribution-btn {
+  position: relative;
+  bottom: 5px;
 }
 
 .contribution-container {
   position: fixed;
-  bottom: 5px;
-  left: 5px;
-  right: 5px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: lightgrey;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  opacity: 1.0;
 }
 
 .discussion-area {
