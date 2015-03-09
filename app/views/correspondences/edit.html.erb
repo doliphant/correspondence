@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-4">
-    <p> Suggestions for a good discussion </p>
+    <p> Suggestions for a good correspondence </p>
       <ul>
         <li>Make your topic as specific as possible</li>
         <li>Keep the description short</li>
@@ -10,15 +10,15 @@
   </div>
 
   <div class="col-md-7">
-    <%= form_for @discussion do |d| %>
+    <%= form_for @correspondence do |d| %>
       <div class="form-group">
         <%= d.label :title %>
-        <%= d.text_field :title, class: 'form-control', placeholder: "Enter Discussion Title" %>
+        <%= d.text_field :title, class: 'form-control', placeholder: "Enter Correspondence Title" %>
       </div>
 
       <div class="form-group">
         <%= d.label :description %>
-        <%= d.text_area :description, rows: 3, class: 'form-control', placeholder: "Describe your discussion." %>
+        <%= d.text_area :description, rows: 3, class: 'form-control', placeholder: "Describe your correspondence." %>
       </div>
 
       <div class="form-group">
@@ -34,7 +34,7 @@
     <% end %>
 
     <!-- Have to add policy -->
-    <%= link_to "Delete Correspondence", @discussion, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?' } %>
+    <%= link_to "Delete Correspondence", @correspondence, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?' } %>
 
   </div>
 

@@ -5,14 +5,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
         #  :confirmable - later
 
-  has_many :created_discussions, :foreign_key => "creator_id", :class_name => "Discussion"
-  has_many :participated_discussions, :foreign_key => "participant_id", :class_name => "Discussion"
+  has_many :created_correspondences, :foreign_key => "creator_id", :class_name => "Correspondence"
+  has_many :participated_correspondences, :foreign_key => "participant_id", :class_name => "Correspondence"
 
   has_many :posts
   has_many :comments
 
-  def in_discussion?(discussion)
-    self == discussion.creator || self == discussion.participant
+  def in_correspondence?(correspondence)
+    self == correspondence.creator || self == correspondence.participant
   end
 
 

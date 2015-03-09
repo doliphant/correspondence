@@ -1,26 +1,26 @@
 
 <!-- if current_user.present?  -->
-  <div class="discussion-area contributor">
+  <div class="correspondence-area contributor">
 <!-- else
-  <div class="discussion-area">
+  <div class="correspondence-area">
 end -->
 
 
 
   <div class="header">
-    <h1><%= @discussion.title %></h1>
+    <h1><%= @correspondence.title %></h1>
 
     <div class="lead">
-      <p><%= @discussion.description %>
-        <% if @discussion.updated_at == @discussion.created_at %>
-          <small><i> Created on <%= @discussion.updated_at.strftime("%m/%d/%Y") %>. </i></small>
+      <p><%= @correspondence.description %>
+        <% if @correspondence.updated_at == @correspondence.created_at %>
+          <small><i> Created on <%= @correspondence.updated_at.strftime("%m/%d/%Y") %>. </i></small>
         <% else %>
-          <small><i> Updated on <%= @discussion.updated_at.strftime("%m/%d/%Y") %>. </i></small>
+          <small><i> Updated on <%= @correspondence.updated_at.strftime("%m/%d/%Y") %>. </i></small>
         <% end %>
       </p>
-      <i> Participants: <%= @discussion.creator.name %> and <%= @discussion.participant.name %> </i>
+      <i> Participants: <%= @correspondence.creator.name %> and <%= @correspondence.participant.name %> </i>
       </br>
-      <% if @discussion.private %>
+      <% if @correspondence.private %>
         <i> A Private Correspondence </i>
       <% end %>
       </br>
@@ -32,7 +32,7 @@ end -->
   <%= render partial: 'comments/comment', collection: @comments %>
 
 <!-- collapsable comment panel for signed-in non-participants -->
-  <% if current_user.present? && !@user.in_discussion?(@discussion) %>
+  <% if current_user.present? && !@user.in_correspondence?(@correspondence) %>
     <div class="container-fluid contribution-container">
       <button class="btn btn-primary contribution-btn" type="button"
       data-toggle="collapse"
@@ -45,7 +45,7 @@ end -->
       <div class="collapse" id="commentCollapse">
         <div class="panel bottom-out">
           <div class="panel-body">
-            <%= render partial: 'comments/form', locals: { discussion: @discussion, comment: @new_comment } %>
+            <%= render partial: 'comments/form', locals: { correspondence: @correspondence, comment: @new_comment } %>
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@ end -->
 
 <!-- #collapsing button for adding a contribution when user or participant is present -->
 
-  <% if @user.in_discussion?(@discussion) %>
+  <% if @user.in_correspondence?(@correspondence) %>
     <div class="container-fluid contribution-container">
       <button class="btn btn-primary contribution-btn" type="button"
       data-toggle="collapse"
@@ -68,7 +68,7 @@ end -->
       <div class="collapse" id="contributionCollapse">
         <div class="panel bottom-out">
           <div class="panel-body">
-            <%= render partial: 'posts/form', locals: { discussion: @discussion, post: @new_post } %>
+            <%= render partial: 'posts/form', locals: { correspondence: @correspondence, post: @new_post } %>
           </div>
         </div>
       </div>

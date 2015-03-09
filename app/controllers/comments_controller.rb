@@ -1,34 +1,34 @@
 class CommentsController < ApplicationController
 
   def create
-    @discussion = Discussion.find(params[:discussion_id])
-    @comments = @discussion.comments
+    @correspondence = Correspondence.find(params[:correspondence_id])
+    @comments = @correspondence.comments
     @comment = current_user.comments.build(comment_params)
-    @comment.discussion = @discussion
+    @comment.correspondence = @correspondence
     @new_comment = Comment.new
     authorize @comment
 
     if @comment.save
       flash[:notice] = "Comment saved."
-      redirect_to @discussion
+      redirect_to @correspondence
     else
       flash[:error] = "Error saving comment. Please try again."
-      redirect_to @discussion
+      redirect_to @correspondence
     end
 
   end
 
   def destroy
-    @discussion = Discussion.find(params[:discussion_id])
+    @correspondence = Correspondence.find(params[:correspondence_id])
     @comment = Comment.find(params[:id])
     authorize @comment
 
     if @comment.destroy
       flash[:notice] = "Comment removed."
-      redirect_to @discussion
+      redirect_to @correspondence
     else
       flash[:notice] = "Comment deleted."
-      redirect_to @discussion
+      redirect_to @correspondence
     end
 
   end

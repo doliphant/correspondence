@@ -1,4 +1,4 @@
-class Discussion < ActiveRecord::Base
+class Correspondence < ActiveRecord::Base
 
   belongs_to :creator, :class_name => "User"
   belongs_to :participant, :class_name => "User"

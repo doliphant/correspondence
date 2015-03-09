@@ -27,21 +27,22 @@ participant.save!
 users = User.all
 
 15.times do
-  discussion = Discussion.create!(
+  correspondence = Correspondence.create!(
     creator: users.sample,
     participant: users.sample,
     title: Faker::Lorem.sentence,
-    description: Faker::Lorem.paragraph
+    description: Faker::Lorem.paragraph,
+    private: false
   )
   # make sure participant and creator are unique
-  while discussion.creator == discussion.participant do
-    discussion.update_attributes!(participant: users.sample)
+  while correspondence.creator == correspondence.participant do
+    correspondence.update_attributes!(participant: users.sample)
   end
 end
 
 #Private correspondences
 5.times do
-  discussion = Discussion.create!(
+  correspondence = Correspondence.create!(
     creator: tester,
     participant: participant,
     title: Faker::Lorem.sentence,
@@ -50,18 +51,18 @@ end
   )
 end
 
-discussions = Discussion.all
+correspondences = Correspondence.all
 
 100.times do
   # post user can only be the creator or participant
-  discussion = discussions.sample
-  discussion_users = []
-  discussion_users << discussion.creator
-  discussion_users << discussion.participant
+  correspondence = correspondences.sample
+  correspondence_users = []
+  correspondence_users << correspondence.creator
+  correspondence_users << correspondence.participant
 
   post = Post.create!(
-    discussion: discussion,
-    user: discussion_users.sample,
+    correspondence: correspondence,
+    user: correspondence_users.sample,
     body: Faker::Lorem.paragraphs(10).join("\n")
   )
 
@@ -73,5 +74,5 @@ end
 
 puts "Seed Finished"
 puts "#{User.count} users created."
-puts "#{Discussion.count} discussions created."
+puts "#{Correspondence.count} correspondences created."
 puts "#{Post.count} posts created."

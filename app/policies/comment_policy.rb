@@ -1,7 +1,7 @@
 class CommentPolicy < ApplicationPolicy
 
   def create?
-    user.present? && !user.in_discussion?(record.discussion)
+    user.present? && !user.in_correspondence?(record.correspondence)
   end
 
   def new?

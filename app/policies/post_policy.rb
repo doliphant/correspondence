@@ -14,7 +14,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present? && user.in_discussion?(record)
+    user.present? && user.in_correspondence?(record)
   end
 
   def new?

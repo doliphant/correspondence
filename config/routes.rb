@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   devise_for :users
-  resources :discussions do
+  resources :correspondences do
     resources :posts
     resources :comments
   end

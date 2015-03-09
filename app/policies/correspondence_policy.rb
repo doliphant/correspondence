@@ -1,4 +1,4 @@
-class DiscussionPolicy < ApplicationPolicy
+class CorrespondencePolicy < ApplicationPolicy
 
   def index?
     true
@@ -31,10 +31,12 @@ class DiscussionPolicy < ApplicationPolicy
 
     def resolve
       if user == nil
-        scope.where(private: false).order('discussions.created_at DESC')
+        scope.all
+        .where(private: false)
+        # .order('correspondences.created_at DESC')
       else
-        scope.where("discussions.creator_id = ? OR discussions.participant_id = ? OR discussions.private = ?", user, user, false)
-        .order('discussions.created_at DESC')
+        scope.where("correspondences.creator_id = ? OR correspondences.participant_id = ? OR correspondences.private = ?", user, user, false)
+        .order('correspondences.created_at DESC')
       end
     end
 
