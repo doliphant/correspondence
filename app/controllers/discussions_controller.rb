@@ -1,6 +1,7 @@
 class DiscussionsController < ApplicationController
   def index
-    @discussions = Discussion.all
+    # @discussions = Discussion.all
+    @discussions = policy_scope(Discussion)
     authorize @discussions
   end
 

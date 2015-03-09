@@ -21,4 +21,24 @@ class DiscussionPolicy < ApplicationPolicy
     update?
   end
 
+  class Scope
+    attr_reader :user, :scope
+
+    def initialize(user, scope)
+      @user = user
+      @scope = scope
+    end
+
+    def resolve
+      if user == nil
+        scope.where(private: false).order('discussions.created_at DESC')
+      else
+        scope.where("discussions.creator_id = ? OR discussions.participant_id = ? OR discussions.private = ?", user, user, false)
+        .order('discussions.created_at DESC')
+      end
+    end
+
+  end
+
+
 end

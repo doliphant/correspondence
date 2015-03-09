@@ -1,5 +1,5 @@
 
-<!-- if @user.in_discussion?(@discussion)  -->
+<!-- if current_user.present?  -->
   <div class="discussion-area contributor">
 <!-- else
   <div class="discussion-area">
@@ -18,7 +18,12 @@ end -->
           <small><i> Updated on <%= @discussion.updated_at.strftime("%m/%d/%Y") %>. </i></small>
         <% end %>
       </p>
-      <i> Participants: <%= @discussion.creator.name %> and <%= @discussion.participant.name %> </i></br>
+      <i> Participants: <%= @discussion.creator.name %> and <%= @discussion.participant.name %> </i>
+      </br>
+      <% if @discussion.private %>
+        <i> A Private Correspondence </i>
+      <% end %>
+      </br>
     </div>
   </div>
 
