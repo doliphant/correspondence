@@ -1,23 +1,26 @@
 </br>
 
-<div class="jumbotron georg-serif">
-  <div class="jumbo-format">
-    <h1>Correspondence</h1>
-    <p><i>Communication by exchanging letters with someone.</i></p>
-    <p class="helv">Writing can carry more meaning, if we just let it.</p>
 
-    <% if current_user.present? %>
-      <p>Welcome back <%= current_user.name %></p>
-    <% else %>
-      <p>
-        <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary'%> or
-        <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary'%>
-      </p>
-    <% end %>
+<div class="jumbotron georg-serif">
+  <div class="container-fluid">
+    <div class="jumbo-format">
+      <h1>Correspondence</h1>
+      <p><i>~Communication by exchanging letters with someone.~</i></p>
+      <p>Writing can carry more meaning, if we just let it.</p>
+
+      <% if current_user.present? %>
+        <p>Welcome back <%= current_user.name %></p>
+      <% else %>
+        <p>
+          <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary'%> or
+          <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary'%>
+        </p>
+      <% end %>
+    </div>
   </div>
 </div>
 
-<div class="row btm-info georg-serif">
+<div class="container georg-serif">
   <div class="col-md-4">
     <h2>Writing can carry more meaning, we just need to let it.</h2>
       <ul>Correspondences cannot be edited! What you write matters</ul>
@@ -38,3 +41,4 @@
       <ul>Discuss particular topics and become a better writer</ul>
       <ul>Share your correspondence for others to discuss</ul>
   </div>
+</div>

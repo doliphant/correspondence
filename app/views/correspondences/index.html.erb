@@ -1,5 +1,7 @@
-<h1>All Correspondences</h1>
+<div class="container georg-serif">
+  <h1>All Correspondences</h1>
 
-<% @correspondences.each do |correspondence| %>
-  <p><%= link_to correspondence.title, correspondence %></p>
-<% end %>
+  <% @correspondences.each do |correspondence| %>
+    <p><%= link_to correspondence.title, correspondence %></p>
+  <% end %>
+</div>
