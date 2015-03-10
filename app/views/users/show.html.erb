@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="media-body">
+        <h2 class="media-heading"><%= @user.name %>
+        <i><small>corresponder since <%=@user.created_at.strftime("%m/%d/%Y") %></i></small></h2>
+        <%= pluralize(@user.created_correspondences.count + @user.participated_correspondences.count, 'correspondence') %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="tabbable tabs-left">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#correspondences" data-toggle="tab">Correspondences</a></li>
+        <li><a href="#following-corresponders" data-toggle="tab">Following</a></li>
+        <li><a href="#favorite-correspondences" data-toggle="tab">Favorite Correspondences</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="correspondences">
+          <div class="container">
+            <%= render partial: 'correspondences/correspondence', collection: @correspondences %>
+          </div>
+        </div>
+        <div class="tab-pane" id="following-corresponders">
+          <div class="container">
+            list of users user is following
+          </div>
+        </div>
+        <div class="tab-pane" id="favorite-correspondences">
+          <div class="container">
+            list of correspondences user has favorited
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

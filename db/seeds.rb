@@ -49,6 +49,10 @@ end
     description: Faker::Lorem.paragraph,
     private: true
   )
+
+  while correspondence.creator == correspondence.participant do
+    correspondence.update_attributes!(participant: users.sample)
+  end
 end
 
 correspondences = Correspondence.all

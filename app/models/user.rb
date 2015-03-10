@@ -15,5 +15,8 @@ class User < ActiveRecord::Base
     self == correspondence.creator || self == correspondence.participant
   end
 
+  def all_correspondences
+    self.created_correspondences + self.participated_correspondences
+  end
 
 end
