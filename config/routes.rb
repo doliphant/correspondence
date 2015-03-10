@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :correspondences do
     resources :posts
     resources :comments
+    resources :favorites, only:[:create, :destroy]
   end
 
   get 'welcome/index'

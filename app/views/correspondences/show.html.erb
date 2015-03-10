@@ -8,8 +8,11 @@ end -->
 
 
   <div class="header">
-    <h1><%= @correspondence.title %></h1>
-
+    <h1><%= @correspondence.title %>
+      <div class="pull-right">
+        <%= render partial: 'favorites/favorite', locals: { correspondence: @correspondence } %>
+      </div>
+    </h1>
     <div class="lead">
       <p><%= @correspondence.description %>
         <% if @correspondence.updated_at == @correspondence.created_at %>

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
+  has_many :favorites, dependent: :destroy
 
   def in_correspondence?(correspondence)
     self == correspondence.creator || self == correspondence.participant
@@ -17,6 +18,10 @@ class User < ActiveRecord::Base
 
   def all_correspondences
     self.created_correspondences + self.participated_correspondences
+  end
+
+  def favorited(correspondence)
+    favorites.where(correspondence_id: correspondence.id).first
   end
 
 end

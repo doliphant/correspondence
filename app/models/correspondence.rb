@@ -5,5 +5,6 @@ class Correspondence < ActiveRecord::Base
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
 end
