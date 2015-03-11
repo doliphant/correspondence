@@ -3,8 +3,15 @@
     <div class="col-md-8">
       <div class="media-body">
         <h2 class="media-heading"><%= @user.name %>
-        <i><small>corresponder since <%=@user.created_at.strftime("%m/%d/%Y") %></i></small></h2>
-        <%= pluralize(@user.created_correspondences.count + @user.participated_correspondences.count, 'correspondence') %>
+        <% if current_user = @user %>
+          <%= link_to 'Edit', edit_user_registration_path, class: 'btn btn-primary' %>
+        <% end %>
+
+        </h2>
+        <h4 class="media-heading">
+          <%= pluralize(@user.created_correspondences.count + @user.participated_correspondences.count, 'correspondence') %>
+        </h4>
+        <i><small>corresponder since <%=@user.created_at.strftime("%m/%d/%Y") %></i></small>
       </div>
     </div>
   </div>
@@ -29,8 +36,7 @@
         </div>
         <div class="tab-pane" id="favorite-correspondences">
           <div class="container">
-            list of favorite correspondences
-            render partial: 'correspondences/correspondence', collection: %>
+            <%= render partial: 'correspondences/correspondence', collection: @favorite_correspondences %>
           </div>
         </div>
       </div>

@@ -33,7 +33,6 @@ class CorrespondencePolicy < ApplicationPolicy
       if user == nil
         scope.all
         .where(private: false)
-        # .order('correspondences.created_at DESC')
       else
         scope.where("correspondences.creator_id = ? OR correspondences.participant_id = ? OR correspondences.private = ?", user, user, false)
         .order('correspondences.created_at DESC')

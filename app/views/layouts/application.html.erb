@@ -17,7 +17,7 @@
 
     <div class="nav pull-right user-info">
       <% if current_user %>
-        Greetings <%= link_to current_user.name, edit_user_registration_path %>! <%= link_to "Sign_Out", destroy_user_session_path, method: :delete %>
+        Greetings <%= link_to current_user.name, current_user %>! <%= link_to "Sign_Out", destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to "Sign In", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %>
       <% end %>

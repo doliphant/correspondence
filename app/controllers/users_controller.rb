@@ -14,6 +14,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @correspondences = @user.all_correspondences
+    # Scope candidate?
+    @favorite_correspondences = @user.favorites.map { |favorite| favorite.correspondence }
   end
 
 
