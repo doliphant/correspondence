@@ -12,6 +12,13 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :favorites, dependent: :destroy
 
+  has_many :my_followers, foreign_key: :following_id, dependent: :destroy, class_name: "Relationship"
+  has_many :followers, through: :my_followers
+
+  has_many :my_followings, foreign_key: :follower_id, dependent: :destroy, class_name: "Relationship"
+  has_many :followings, through: :my_followings
+
+
   def in_correspondence?(correspondence)
     self == correspondence.creator || self == correspondence.participant
   end

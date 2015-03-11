@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @correspondences = @user.all_correspondences
     # Scope candidate?
     @favorite_correspondences = @user.favorites.map { |favorite| favorite.correspondence }
+    @followings = @user.followings.map { |following| following }
   end
 
 

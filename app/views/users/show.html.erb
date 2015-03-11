@@ -3,8 +3,8 @@
     <div class="col-md-8">
       <div class="media-body">
         <h2 class="media-heading"><%= @user.name %>
-        <% if current_user = @user %>
-          <%= link_to 'Edit', edit_user_registration_path, class: 'btn btn-primary' %>
+        <% if current_user == @user %>
+          <%= link_to 'Edit', edit_user_registration_path, class: 'btn btn-xs btn-primary' %>
         <% end %>
 
         </h2>
@@ -32,6 +32,7 @@
         <div class="tab-pane" id="following-corresponders">
           <div class="container">
             list of users user is following
+            <%= render partial: 'users/user', collection: @followings %>
           </div>
         </div>
         <div class="tab-pane" id="favorite-correspondences">
