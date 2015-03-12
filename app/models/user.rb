@@ -31,4 +31,8 @@ class User < ActiveRecord::Base
     favorites.where(correspondence_id: correspondence.id).first
   end
 
+  def is_following(user)
+    Relationship.where("follower_id = ? AND following_id = ?", self.id, user.id).first
+  end
+
 end

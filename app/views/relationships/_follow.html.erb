@@ -1,0 +1,11 @@
+<% if policy(Relationship.new).create? %>
+    <% if relationship = current_user.is_following(user) %>
+      <%= link_to [user, relationship], class: 'btn btn-xs btn-primary', method: :delete do %>
+        <i class="glyphicon glyphicon-remove-sign"> </i>&nbsp; Unfollow
+      <%end %>
+    <% else %>
+      <%= link_to [user, Relationship.new], class: 'btn btn-xs btn-primary', method: :post do %>
+        <i class="glyphicon glyphicon-user"> </i>&nbsp; Follow
+      <% end %>
+    <% end %>
+<% end %>

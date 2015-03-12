@@ -2,10 +2,10 @@
   <div class="media-body">
     <h4 class="media-heading">
       <%= link_to user.name, user %>
-      <i><small>corresponder since <%=@user.created_at.strftime("%m/%d/%Y") %></i></small>
+      <i><small>corresponder since <%=user.created_at.strftime("%m/%d/%Y") %></i></small>
     </h4>
     <p>
-      <%= pluralize(@user.created_correspondences.count + @user.participated_correspondences.count, 'correspondence') %>
+      <%= pluralize(user.created_correspondences.count + user.participated_correspondences.count, 'correspondence') %>
     </p>
   </div>
 </div>
