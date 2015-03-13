@@ -21,7 +21,10 @@ end -->
           <small><i> Updated on <%= @correspondence.updated_at.strftime("%m/%d/%Y") %>. </i></small>
         <% end %>
       </p>
-      <i> Participants: <%= @correspondence.creator.name %> and <%= @correspondence.participant.name %> </i>
+      <i>
+        Participants: <%= link_to @correspondence.creator.name, @correspondence.creator %>
+        and <%= link_to @correspondence.participant.name, @correspondence.participant %>
+      </i>
       </br>
       <% if @correspondence.private %>
         <i> A Private Correspondence </i>
@@ -37,7 +40,7 @@ end -->
 <!-- collapsable comment panel for signed-in non-participants -->
   <% if current_user.present? && !@user.in_correspondence?(@correspondence) %>
     <div class="container-fluid contribution-container">
-      <button class="btn btn-primary contribution-btn" type="button"
+      <button class="btn btn-info contribution-btn" type="button"
       data-toggle="collapse"
       data-target="#commentCollapse"
       aria-expanded="false"
@@ -60,7 +63,7 @@ end -->
 
   <% if @user.in_correspondence?(@correspondence) %>
     <div class="container-fluid contribution-container">
-      <button class="btn btn-primary contribution-btn" type="button"
+      <button class="btn btn-info contribution-btn" type="button"
       data-toggle="collapse"
       data-target="#contributionCollapse"
       aria-expanded="false"

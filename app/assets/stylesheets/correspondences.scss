@@ -1,13 +1,16 @@
 .header {
   font: 100% Helvetica, sans-serif;
   border: solid;
-  border-color: lightgrey;
-  border-radius: 5px;
+  border-color: #A4D1D1;
+  border-radius: 10px;
   padding: 5px;
   margin: 10px 10px 10px 10px;
-  background: lightgrey;
+  background: #D3E9E9;
 }
 
+.index-container {
+  height: 475px
+}
 
 .contribution-btn {
   position: relative;
@@ -19,7 +22,7 @@
   bottom: 0px;
   left: 0px;
   right: 0px;
-  background: lightgrey;
+  background: #A4C4C4;
   padding-top: 10px;
   padding-bottom: 0px;
   opacity: 1.0;

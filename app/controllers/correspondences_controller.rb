@@ -1,8 +1,7 @@
 class CorrespondencesController < ApplicationController
 
   def index
-    # @correspondences = Correspondence.all
-    @correspondences = policy_scope(Correspondence)
+    @correspondences = policy_scope(Correspondence.paginate(page: params[:page], per_page: 15))
     authorize @correspondences
   end
 
@@ -14,7 +13,7 @@ class CorrespondencesController < ApplicationController
     @new_comment = Comment.new
     @user = current_user
 
-    # need a user for calls to user class methods
+    # need a user for calls to user methods
     if @user == nil
       @user = User.new
     end
