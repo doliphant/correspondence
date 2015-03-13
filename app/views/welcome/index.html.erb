@@ -25,14 +25,17 @@
     <h2>Writing can carry more meaning, we just need to let it.</h2>
       <ul>Correspondences cannot be edited! What you write matters</ul>
       <ul>Permanence gives conversations meaning.</ul>
-      <ul>Read more <%= link_to "About Correspondence", welcome_about_path, class: 'link' %></ul>
+      <!-- <ul>Read more  link_to "About Correspondence", welcome_about_path, class: 'link' %></ul> -->
   </div>
 
   <div class="col-md-4">
-    <h2>Read famous correspondences from the past</h2>
-      <ul>Link 1, eg. "Benjamin Franklin and Thomas Payne"</ul>
-      <ul>Link 2</ul>
-      <ul>Link 3</ul>
+    <h2>Great sites that feature famous correspondences</h2>
+      <ul><%= link_to "Letters of Note", 'http://www.lettersofnote.com/',  class: 'link'%></ul>
+      <ul><%= link_to "Darwin Project", 'http://www.darwinproject.ac.uk/',  class: 'link'%></ul>
+      <ul><%= link_to "Orwell and P.G. Wodehouse",
+        'http://theorwellprize.co.uk/george-orwell/by-orwell/essays-and-other-works/in-defence-of-p-g-wodehouse/',
+        class: 'link'%>
+      </ul>
   </div>
 
   <div class="col-md-4">
