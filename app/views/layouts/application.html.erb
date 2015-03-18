@@ -14,7 +14,10 @@
     <li><%= link_to "Correspondence", welcome_index_path %></li>
     <!-- <li> link_to "About", welcome_about_path %></li> -->
     <li><%= link_to "Browse Correspondences", correspondences_path %></li>
-
+    <% if current_user %>
+      <li><%= link_to "Start a Correspondence", new_correspondence_path %></li>
+    <% end %>
+    
     <div class="nav pull-right user-info">
       <% if current_user %>
         Greetings <%= link_to current_user.name, current_user %>! <%= link_to "Sign_Out", destroy_user_session_path, method: :delete %>
