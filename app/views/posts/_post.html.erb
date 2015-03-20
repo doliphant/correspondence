@@ -1,19 +1,16 @@
 <div class="container-fluid georg-serif">
   <% if post.user == @correspondence.participant %>
-    <!-- <div class="posts participant_posts"> -->
     <div class="panel panel-success participant-posts">
   <% else %>
-    <!-- <div class="posts creator_posts"> -->
     <div class="panel panel-info creator-posts">
   <% end %>
-      <!-- <div class="panel panel-default"> -->
       <div class="panel-heading"><b> <%= post.user.name %> wrote... </b></div>
-      <div class="panel-body"><%= post.body %>
+      <div class="panel-body"><%= markdown_to_html post.body %>
       </br>
         <i>submitted <%= time_ago_in_words(post.created_at) %> ago</i>
         <% if policy(post).update? %>
           <%= link_to "Edit", edit_correspondence_post_path(@correspondence, post) %>
-          available for <%= (5 - (Time.now - post.created_at)/60).to_i %> minutes.
+          available for <%= (16 - (Time.now - post.created_at)/60).to_i %> minutes.
         <% end %>
       </div>
     </div>

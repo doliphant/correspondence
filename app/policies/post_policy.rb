@@ -1,12 +1,8 @@
 class PostPolicy < ApplicationPolicy
 
-  #inheriting from application policy:
-  #show?
-  #
-
   def update?
     user.present? && (record.user == user) &&
-    (Time.now - record.created_at)/60 < 5
+    (Time.now - record.created_at)/60 < 15
   end
 
   def edit?
