@@ -1,13 +1,8 @@
 
-<!-- if current_user.present?  -->
-  <div class="correspondence-area contributor">
-<!-- else
-  <div class="correspondence-area">
-end -->
+<div class="correspondence-area contributor">
 
 
-
-  <div class="header">
+  <div class="header georg-serif">
     <h1><%= @correspondence.title %>
       <div class="pull-right">
         <%= render partial: 'favorites/favorite', locals: { correspondence: @correspondence } %>
@@ -60,7 +55,6 @@ end -->
 
 
 <!-- #collapsing button for adding a contribution when user or participant is present -->
-
   <% if @user.in_correspondence?(@correspondence) %>
     <div class="container-fluid contribution-container">
       <button class="btn btn-info contribution-btn" type="button"

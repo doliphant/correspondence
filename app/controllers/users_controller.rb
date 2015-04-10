@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @correspondences = @user.all_correspondences
     # Scope candidate?
+    # @favorite_correspondences = Correspondences.join(:favorites).where("favorites.user_id = ?", @user)
     @favorite_correspondences = @user.favorites.map { |favorite| favorite.correspondence }
     @followings = @user.followings.all
   end

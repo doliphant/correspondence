@@ -48,7 +48,7 @@ class PostsController < ApplicationController
   def destroy
     @correspondence = Correspondence.find(params[:correspondence_id])
     @post = Post.find(params[:id])
-    # Destroy action deliberately restriced to destruction of the correspondence
+    #post destroy action deliberately restricted to destruction of the correspondence
     authorize @correspondence
 
     if @post.destroy

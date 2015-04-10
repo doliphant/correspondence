@@ -1,11 +1,10 @@
-<div class="container georg-serif">
-  <div class="index-container">
-    <h1>All Correspondences</h1>
 
-    <% @correspondences.each do |correspondence| %>
-      <p><%= link_to correspondence.title, correspondence %></p>
-    <% end %>
 
-  </div>
+<div class="container georg-serif col-md-8">
+
+  <h1>All Correspondences</h1>
   <%= will_paginate @correspondences %>
+  <%= render partial: 'correspondences/correspondence', collection: @correspondences %>
+  <%= will_paginate @correspondences %>
+
 </div>
